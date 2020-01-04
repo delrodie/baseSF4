@@ -8,6 +8,39 @@
         {% endblock %}
     </head>
     <body>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-6"></div>
+                <div class="col-md-6 text-right">
+                    <span style="font-size: 0.9em; padding-right: 40px;">Contact: <strong>+225 71313151</strong></span>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('homepage') }}">Symfony 4</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item {% if current_menu is defined and current_menu == 'Accueil' %}Active{% endif %}">
+                            <a class="nav-link" href="{{ path('homepage') }}">Accueil </a>
+                        </li>
+                        <li class="nav-item {% if current_menu is defined and current_menu == 'Accueil' %}Active{% endif %} dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Article
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('article_index') }}">Liste</a>
+                                <a class="dropdown-item" href="{{ path('article_new') }}">Ajouter</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
